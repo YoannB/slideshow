@@ -1,0 +1,257 @@
+<!--[if gte IE 9]><!DOCTYPE html><![endif]-->
+<!--[if IE 8]><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><![endif]-->
+<!--[if lte IE 7]><!DOCTYPE html><![endif]-->
+<!--[if !IE]>--><!DOCTYPE html><!--<![endif]-->
+<html>
+	<head>
+		<!--[if gte IE 9]><meta http-equiv="X-UA-Compatible" content="IE=9"><![endif]-->
+		<!--[if IE 8]><meta http-equiv="X-UA-Compatible" content="IE=8"><![endif]-->
+		<!--[if lte IE 7]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="javascript">
+		<meta name="description" content="Gjs">
+		<meta name="copyright" content="gwivvo@gmail.com">
+		<meta name="author" content="Gwivv">
+		
+		<!-- Gestion mobile -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Open Graph Info -->
+		<meta property="og:site_name" content="Slideshow">
+		<meta property="og:title" content="Slideshow">
+		<meta property="og:description" content="Slideshow code with optimisation for TV">
+		<meta property="og:url" content="{{url}}">
+		<meta property="og:image" content="{{image}}">
+		<meta property="og:type" content="site-web">
+
+		<meta property="article:published_time" content="{{article_published_time}}" />
+		<meta property="article:modified_time" content="{{article_modified_time}}" />
+		<meta property="article:tag" content="Javascript" />
+		<meta property="article:publisher" content="YoannB" />
+		<meta property="article:author" content="YoannB" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Slideshow" />
+		<meta name="twitter:description" content="Slideshow code with optimisation for TV" />
+		<meta name="twitter:url" content="{{url}}" />
+		<meta name="twitter:image" content="{{image}}" />
+		<meta name="twitter:label1" content="Developped by" />
+		<meta name="twitter:data1" content="YoannB" />
+		<meta name="twitter:site" content="@YoannB" />
+		<meta name="twitter:creator" content="@YoannB" />
+
+		<meta property="og:image:width" content="{{imageWidth}}" />
+		<meta property="og:image:height" content="{{imageHeight}}" />
+
+		<!-- Titre -->	
+		<title>Slideshow</title>
+		
+		<!-- Icon -->
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		
+		<!-- html 5 new elements -->
+		<!--[if lt IE 9]><script>"abbr,article,footer,header,nav,section,time".replace(/\w+/g,function(t){document.createElement(t);});</script><![endif]-->
+		
+		<style>	
+			/* http://css3.bradshawenterprises.com/cfimg/ */
+		
+			body {
+				width:100%; /* 1280px; */
+				height:100%; /* 720px; */
+
+				color:#474747;
+				background:#171717;
+				filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#1a1a1a', endColorStr='#171717'); /* #7db5fe #f2f2f2 */
+				background: -webkit-gradient(linear, left top, left bottom, from(#1a1a1a), to(#171717));
+				background: -webkit-linear-gradient(#1a1a1a, #171717);
+				background: -moz-linear-gradient(top,  #1a1a1a,  #171717);
+				background: -ms-linear-gradient(top,  #1a1a1a,  #171717);
+				background: -o-linear-gradient(top,  #1a1a1a,  #171717);
+				background: linear-gradient(#1a1a1a, #171717);
+			}
+			body,div {			
+				margin:0;
+				padding:0;
+			}
+			.hidden {
+				position:absolute;
+				top:-10000px;
+				left:-10000px;
+				visibility:hidden;
+			}
+			
+		</style>
+		
+		<link type="text/css" rel="stylesheet" href="slideshow.css">
+		<script type="text/javascript" src="slideshow.js"></script>
+
+		<!-- JAVASCRIPT page -->
+		<script type="text/javascript">
+			
+			function loadPage () {
+			
+				var list = [
+					{urlData:"images/Collines.jpg",date:"06/01/2013",resolution:"800x600px"},
+					{urlData:"images/Nenuphars.jpg",date:"06/02/2013",resolution:"800x600px"},
+					{urlData:"images/Coucher de soleil.jpg",date:"06/03/2013",resolution:"800x600px"},
+					{urlData:"images/Hiver.jpg",date:"06/04/2013",resolution:"800x600px"},
+					{urlData:"images/aucoeurdelenquete.jpg",date:"06/05/2013",resolution:"1024x576px"},
+					{urlData:"images/a-vos-recettes-iptv.jpg",date:"06/06/2013",resolution:"1024x576px"},
+					{urlData:"images/avosregions.jpg",date:"06/07/2013",resolution:"1024x576px"},
+					{urlData:"images/D8leJT.jpg",date:"06/08/2013",resolution:"1024x576px"},
+					{urlData:"images/D8RREPLAY.jpg",date:"06/09/2013",resolution:"1920x1024px"},
+					{urlData:"images/enquetedactualite.jpg",date:"06/10/2013",resolution:"1024x576px"},
+					{urlData:"images/enquetedesolutions.jpg",date:"06/11/2013",resolution:"1024x576px"},
+					{urlData:"images/femmesdeloi.jpg",date:"06/12/2013",resolution:"1024x576px"},
+					{urlData:"images/gymdirect.jpg"},
+					{urlData:"images/La Folle Histoire du Palmashow.jpg",resolution:"1024x576px"},
+					{urlData:"images/languedeboisabstenir.jpg",date:"06/01/2013",resolution:"800x600px"},
+					{urlData:"images/laselectionD8.jpg",date:"06/02/2013",resolution:"800x600px"},
+					{urlData:"images/legrand8.jpg",date:"06/03/2013",resolution:"800x600px"},
+					{urlData:"images/lesmaitresdelhumour.jpg",date:"06/04/2013",resolution:"800x600px"},
+					{urlData:"images/nouvellestar.jpg",date:"06/05/2013",resolution:"1024x576px"},
+					{urlData:"images/palmashow_verybadblagues.jpg",date:"06/06/2013",resolution:"1024x576px"},
+					{urlData:"images/popd8 tv lumiere.jpg",date:"06/07/2013",resolution:"1024x576px"},
+					{urlData:"images/touchepasamonposte_2.jpg",date:"06/08/2013",resolution:"1024x576px"},
+					{urlData:"images/tpmp90_IPTV.jpg",date:"06/09/2013",resolution:"1920x1024px"},
+					{urlData:"images/tpmpete_IPTV.jpg",date:"06/10/2013",resolution:"1024x576px"},
+					{urlData:"images/v2B_iptv.jpg",date:"06/11/2013",resolution:"1024x576px"},
+					{urlData:"images/voyageauboutdelanuit.jpg",date:"06/12/2013",resolution:"1024x576px"},
+					{urlData:"images/Collines.jpg",date:"06/01/2013",resolution:"800x600px"},
+					{urlData:"images/Nenuphars.jpg",date:"06/02/2013",resolution:"800x600px"},
+					{urlData:"images/Coucher de soleil.jpg",date:"06/03/2013",resolution:"800x600px"},
+					{urlData:"images/Hiver.jpg",date:"06/04/2013",resolution:"800x600px"},
+					{urlData:"images/aucoeurdelenquete.jpg",date:"06/05/2013",resolution:"1024x576px"},
+					{urlData:"images/a-vos-recettes-iptv.jpg",date:"06/06/2013",resolution:"1024x576px"},
+					{urlData:"images/avosregions.jpg",date:"06/07/2013",resolution:"1024x576px"},
+					{urlData:"images/D8leJT.jpg",date:"06/08/2013",resolution:"1024x576px"},
+					{urlData:"images/D8RREPLAY.jpg",date:"06/09/2013",resolution:"1920x1024px"},
+					{urlData:"images/enquetedactualite.jpg",date:"06/10/2013",resolution:"1024x576px"},
+					{urlData:"images/enquetedesolutions.jpg",date:"06/11/2013",resolution:"1024x576px"},
+					{urlData:"images/femmesdeloi.jpg",date:"06/12/2013",resolution:"1024x576px"},
+					{urlData:"images/gymdirect.jpg"},
+					{urlData:"images/La Folle Histoire du Palmashow.jpg",resolution:"1024x576px"},
+					{urlData:"images/languedeboisabstenir.jpg",date:"06/01/2013",resolution:"800x600px"},
+					{urlData:"images/laselectionD8.jpg",date:"06/02/2013",resolution:"800x600px"},
+					{urlData:"images/legrand8.jpg",date:"06/03/2013",resolution:"800x600px"},
+					{urlData:"images/lesmaitresdelhumour.jpg",date:"06/04/2013",resolution:"800x600px"},
+					{urlData:"images/nouvellestar.jpg",date:"06/05/2013",resolution:"1024x576px"},
+					{urlData:"images/palmashow_verybadblagues.jpg",date:"06/06/2013",resolution:"1024x576px"},
+					{urlData:"images/popd8 tv lumiere.jpg",date:"06/07/2013",resolution:"1024x576px"},
+					{urlData:"images/touchepasamonposte_2.jpg",date:"06/08/2013",resolution:"1024x576px"},
+					{urlData:"images/tpmp90_IPTV.jpg",date:"06/09/2013",resolution:"1920x1024px"},
+					{urlData:"images/tpmpete_IPTV.jpg",date:"06/10/2013",resolution:"1024x576px"},
+					{urlData:"images/v2B_iptv.jpg",date:"06/11/2013",resolution:"1024x576px"},
+					{urlData:"images/voyageauboutdelanuit.jpg",date:"06/12/2013",resolution:"1024x576px"},
+					{urlData:"images/Collines.jpg",date:"06/01/2013",resolution:"800x600px"},
+					{urlData:"images/Nenuphars.jpg",date:"06/02/2013",resolution:"800x600px"},
+					{urlData:"images/Coucher de soleil.jpg",date:"06/03/2013",resolution:"800x600px"},
+					{urlData:"images/Hiver.jpg",date:"06/04/2013",resolution:"800x600px"},
+					{urlData:"images/aucoeurdelenquete.jpg",date:"06/05/2013",resolution:"1024x576px"},
+					{urlData:"images/a-vos-recettes-iptv.jpg",date:"06/06/2013",resolution:"1024x576px"},
+					{urlData:"images/avosregions.jpg",date:"06/07/2013",resolution:"1024x576px"},
+					{urlData:"images/D8leJT.jpg",date:"06/08/2013",resolution:"1024x576px"},
+					{urlData:"images/D8RREPLAY.jpg",date:"06/09/2013",resolution:"1920x1024px"},
+					{urlData:"images/enquetedactualite.jpg",date:"06/10/2013",resolution:"1024x576px"},
+					{urlData:"images/enquetedesolutions.jpg",date:"06/11/2013",resolution:"1024x576px"},
+					{urlData:"images/femmesdeloi.jpg",date:"06/12/2013",resolution:"1024x576px"},
+					{urlData:"images/gymdirect.jpg"},
+					{urlData:"images/La Folle Histoire du Palmashow.jpg",resolution:"1024x576px"},
+					{urlData:"images/languedeboisabstenir.jpg",date:"06/01/2013",resolution:"800x600px"},
+					{urlData:"images/laselectionD8.jpg",date:"06/02/2013",resolution:"800x600px"},
+					{urlData:"images/legrand8.jpg",date:"06/03/2013",resolution:"800x600px"},
+					{urlData:"images/lesmaitresdelhumour.jpg",date:"06/04/2013",resolution:"800x600px"},
+					{urlData:"images/nouvellestar.jpg",date:"06/05/2013",resolution:"1024x576px"},
+					{urlData:"images/palmashow_verybadblagues.jpg",date:"06/06/2013",resolution:"1024x576px"},
+					{urlData:"images/popd8 tv lumiere.jpg",date:"06/07/2013",resolution:"1024x576px"},
+					{urlData:"images/touchepasamonposte_2.jpg",date:"06/08/2013",resolution:"1024x576px"},
+					{urlData:"images/tpmp90_IPTV.jpg",date:"06/09/2013",resolution:"1920x1024px"},
+					{urlData:"images/tpmpete_IPTV.jpg",date:"06/10/2013",resolution:"1024x576px"},
+					{urlData:"images/v2B_iptv.jpg",date:"06/11/2013",resolution:"1024x576px"},
+					{urlData:"images/voyageauboutdelanuit.jpg",date:"06/12/2013",resolution:"1024x576px"}
+				];
+			
+				slideShow.init({
+					"animated":true,
+					"displayControls":true,
+					"cyclic":true,
+					"autoStop":true,
+					"clickImage":false,
+					"onEnd":function () {
+						// slideShow.play(list,0);
+						console.debug("end");
+					}
+				});
+				
+				slideShow.play(list,0);
+				
+				
+				// connect event keyboard
+				document.onkeydown = function (e) {
+					switch (e.keyCode) {
+						case 13 : // enter
+							slideShow.toggleBarDetailed();
+							break;
+						case 80 : case 415 : // P
+							slideShow.togglePlayPause();
+							break;
+						case 82 : // R
+							slideShow.reset();
+							break;
+						case 39 : case 417 : // RIGHT
+							slideShow.next();
+							break;
+						case 37 : case 412 : // LEFT
+							slideShow.previous();
+							break;
+						case 38 : // UP
+							slideShow.showBar();
+							break;
+						case 40 : // DOWN
+							slideShow.hideBar();
+							break;
+						case 96 : case 413 : // 0
+							slideShow.stop();
+							break;
+						case 97 : case 49 : // 1
+							slideShow.setTimeoutSlide(1);
+							break;
+						case 98 : case 50 : // 2
+							slideShow.setTimeoutSlide(2);
+							break;
+						case 99 : case 51 : // 3
+							slideShow.setTimeoutSlide(3);
+							break;
+						case 100: case 52 : // 4
+							slideShow.setTimeoutSlide(4);
+							break;
+						case 101: case 53 : // 5
+							slideShow.setTimeoutSlide(5);
+							break;
+						case 102: case 54 : // 6
+							slideShow.setTimeoutSlide(6);
+							break;
+						case 103: case 55 : // 7
+							slideShow.setTimeoutSlide(7);
+							break;
+						case 104: case 56 : // 8
+							slideShow.setTimeoutSlide(8);
+							break;
+						case 105: case 57 : // 9
+							slideShow.setTimeoutSlide(9);
+							break;
+						default : 
+							break;
+					};
+				};
+				
+				// resize event
+				window.onresize = function () {
+					slideShow.resize();
+				};
+			}
+		</script>
+	</head>
+	<body onload="loadPage();">
+	</body>
+</html>
